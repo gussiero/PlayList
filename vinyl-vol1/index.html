@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Midnight Drive — Vol. 1</title>
+    <title>Тестовый плейлист — Vol. 1</title>
     
     <!-- Open Graph: чтобы ссылка красиво выглядела в Telegram/WhatsApp -->
-    <meta property="og:title" content="Midnight Drive — Vol. 1">
+    <meta property="og:title" content="Тестовый плейлист — Vol. 1">
     <meta property="og:description" content="Ночной синтвейв для пустых трасс. Темп: 110 BPM.">
-    <!-- Замените ссылку ниже на реальную ссылку на вашу обложку, когда загрузите её -->
     <meta property="og:image" content="https://via.placeholder.com/600x600/1a1a1a/ffffff?text=Cover+Art">
     <meta property="og:type" content="website">
 
     <style>
-        /* Базовые стили для тёмной темы */
         body {
             margin: 0;
             padding: 0;
@@ -33,17 +31,14 @@
             text-align: center;
         }
 
-        /* Стиль обложки */
         .cover-art {
             width: 100%;
             max-width: 400px;
             aspect-ratio: 1 / 1;
             background-color: #2a2a2a;
-            border-radius: 4px;
+            border-radius: 8px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
             margin-bottom: 30px;
-            object-fit: cover;
-            /* Временная заглушка, пока нет реальной картинки */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -74,7 +69,6 @@
             padding: 0 10px;
         }
 
-        /* Кнопки */
         .links {
             display: flex;
             flex-direction: column;
@@ -97,8 +91,7 @@
         }
 
         .btn:hover {
-            transform: scale(1.02);
-            background-color: #f0f0f0;
+            transform: scale(1.03);
         }
 
         .btn.yandex {
@@ -108,6 +101,15 @@
         
         .btn.yandex:hover {
             background-color: #ffd633;
+        }
+
+        .btn.vk {
+            background-color: #0077FF;
+            color: #ffffff;
+        }
+
+        .btn.vk:hover {
+            background-color: #0066CC;
         }
 
         .footer {
@@ -120,7 +122,6 @@
 <body>
 
     <div class="container">
-        <!-- Сюда потом вставишь тег <img src="cover.jpg" class="cover-art" alt="Обложка"> -->
         <div class="cover-art">
             [Здесь будет твоя обложка 1:1]
         </div>
@@ -129,14 +130,16 @@
         <div class="subtitle">Vol. 01 • 2026</div>
         
         <p class="description">
-            Ночной синтвейв для пустых трасс. <br>
-            Темп: 110 BPM. Настроение: меланхолия и неон.
+            Тестовый запуск. <br>
+            Скоро здесь будет настоящая обложка и QR-код.
         </p>
 
         <div class="links">
-            <!-- Замени # на реальные ссылки на плейлисты -->
-            <a href="#" class="btn yandex">Слушать в Яндекс Музыке</a>
-            <a href="#" class="btn">Слушать в Spotify</a>
+            <!-- Твоя ссылка на Яндекс Музыку -->
+            <a href="https://music.yandex.ru/playlists/ee6750f8-77b8-6734-90ce-8e0c687529aa?utm_medium=copy_link&ref_id=554c79b8-32d0-41ca-8d1d-385750a21c39" class="btn yandex" target="_blank">Слушать в Яндекс Музыке</a>
+            
+            <!-- Твоя ссылка на VK Музыку -->
+            <a href="https://vk.ru/audio?z=audio_playlist204833129_63/f5a6d3ec424db69216" class="btn vk" target="_blank">Слушать в VK Музыке</a>
         </div>
 
         <div class="footer">
