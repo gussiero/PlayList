@@ -3,147 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тестовый плейлист — Vol. 1</title>
+    <title>Midnight Drive — Vol. 01</title>
     
-    <!-- Open Graph: чтобы ссылка красиво выглядела в Telegram/WhatsApp -->
-    <meta property="og:title" content="Тестовый плейлист — Vol. 1">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Midnight Drive — Vol. 01">
     <meta property="og:description" content="Ночной синтвейв для пустых трасс. Темп: 110 BPM.">
     <meta property="og:image" content="https://via.placeholder.com/600x600/1a1a1a/ffffff?text=Cover+Art">
     <meta property="og:type" content="website">
 
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #121212;
-            color: #e0e0e0;
+            background-color: #000;
+            color: #fff;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Логотип */
+        .logo {
+            padding: 30px 40px;
+            display: flex;
             align-items: center;
-            min-height: 100vh;
-            padding: 40px 20px;
+            gap: 10px;
         }
 
+        .logo-icon {
+            width: 40px;
+            height: 25px;
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
+            border-radius: 20px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Основной контент */
         .container {
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-        }
-
-        .cover-art {
-            width: 100%;
-            max-width: 400px;
-            aspect-ratio: 1 / 1;
-            background-color: #2a2a2a;
-            border-radius: 8px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-            margin-bottom: 30px;
+            flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #555;
-            font-size: 1.2rem;
+            padding: 40px;
+            gap: 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
         }
 
-        h1 {
-            font-size: 2rem;
-            margin: 0 0 8px 0;
-            letter-spacing: -0.5px;
-            color: #ffffff;
+        /* Левая часть с текстом */
+        .content {
+            flex: 1;
+            max-width: 500px;
         }
 
-        .subtitle {
-            font-size: 1rem;
+        .label {
+            font-size: 0.9rem;
             color: #888;
-            margin-bottom: 24px;
+            margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
-        .description {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #b0b0b0;
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #aaa;
             margin-bottom: 40px;
-            padding: 0 10px;
+            font-weight: 300;
         }
 
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            width: 100%;
-            max-width: 350px;
-            margin: 0 auto;
+        .description {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 40px;
         }
 
+        /* Кнопка */
         .btn {
-            display: block;
-            padding: 16px;
-            background-color: #ffffff;
-            color: #121212;
+            display: inline-block;
+            padding: 16px 32px;
+            background: #1DB954;
+            color: #000;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 700;
             font-size: 1rem;
-            transition: transform 0.2s, background-color 0.2s;
+            margin-right: 12px;
+            margin-bottom: 12px;
+            transition: transform 0.2s, background 0.2s;
         }
 
         .btn:hover {
-            transform: scale(1.03);
+            transform: scale(1.05);
+            background: #1ed760;
         }
 
-        .btn.yandex {
-            background-color: #FFCC00;
-            color: #000000;
-        }
-        
-        .btn.yandex:hover {
-            background-color: #ffd633;
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #fff;
+            color: #fff;
         }
 
-        .btn.vk {
-            background-color: #0077FF;
-            color: #ffffff;
+        .btn-secondary:hover {
+            background: #fff;
+            color: #000;
         }
 
-        .btn.vk:hover {
-            background-color: #0066CC;
+        /* Социальные иконки */
+        .social {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid #222;
         }
 
-        .footer {
-            margin-top: 60px;
-            font-size: 0.8rem;
-            color: #555;
+        .social a {
+            color: #666;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: color 0.2s;
+        }
+
+        .social a:hover {
+            color: #fff;
+        }
+
+        /* Правая часть с обложкой */
+        .cover-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .cover {
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 1 / 1;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            border-radius: 4px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+        }
+
+        /* Эффект свечения для обложки */
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%);
+            animation: glow 8s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Адаптивность для мобильных */
+        @media (max-width: 968px) {
+            .container {
+                flex-direction: column;
+                gap: 40px;
+                padding: 20px;
+            }
+
+            .content {
+                text-align: center;
+                max-width: 100%;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .cover {
+                max-width: 350px;
+            }
+
+            .social {
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- Логотип -->
+    <div class="logo">
+        <div class="logo-icon"></div>
+        <div class="logo-text">VinylCollection</div>
+    </div>
+
+    <!-- Основной контент -->
     <div class="container">
-        <div class="cover-art">
-            [Здесь будет твоя обложка 1:1]
-        </div>
-
-        <h1>Midnight Drive</h1>
-        <div class="subtitle">Vol. 01 • 2026</div>
-        
-        <p class="description">
-            Тестовый запуск. <br>
-            Скоро здесь будет настоящая обложка и QR-код.
-        </p>
-
-        <div class="links">
-            <!-- Твоя ссылка на Яндекс Музыку -->
-            <a href="https://music.yandex.ru/playlists/ee6750f8-77b8-6734-90ce-8e0c687529aa?utm_medium=copy_link&ref_id=554c79b8-32d0-41ca-8d1d-385750a21c39" class="btn yandex" target="_blank">Слушать в Яндекс Музыке</a>
+        <!-- Левая часть -->
+        <div class="content">
+            <div class="label">Out Now</div>
+            <h1>Midnight Drive</h1>
+            <div class="subtitle">Vol. 01 • 2026</div>
             
-            <!-- Твоя ссылка на VK Музыку -->
-            <a href="https://vk.ru/audio?z=audio_playlist204833129_63/f5a6d3ec424db69216" class="btn vk" target="_blank">Слушать в VK Музыке</a>
+            <p class="description">
+                Ночной синтвейв для пустых трасс. <br>
+                Темп: 110 BPM. Настроение: меланхолия и неон.
+            </p>
+
+            <div class="buttons">
+                <a href="https://music.yandex.ru/playlists/ee6750f8-77b8-6734-90ce-8e0c687529aa" class="btn" target="_blank">Listen on Yandex</a>
+                <a href="https://vk.ru/audio?z=audio_playlist204833129_63/f5a6d3ec424db69216" class="btn btn-secondary" target="_blank">VK Music</a>
+            </div>
+
+            <div class="social">
+                <a href="#">📧</a>
+                <a href="#">📱</a>
+                <a href="#">📷</a>
+                <a href="#">🎵</a>
+            </div>
         </div>
 
-        <div class="footer">
-            Отсканируй QR-код на физическом конверте, чтобы открыть эту страницу.
+        <!-- Правая часть с обложкой -->
+        <div class="cover-wrapper">
+            <div class="cover">
+                <!-- Здесь будет твоя обложка -->
+                <img src="https://via.placeholder.com/600x600/1e3c72/ffffff?text=Your+Cover+Art" alt="Cover Art">
+            </div>
         </div>
     </div>
 
