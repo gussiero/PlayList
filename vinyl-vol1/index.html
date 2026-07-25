@@ -95,6 +95,7 @@
             font-weight: 700;
             font-size: 1rem;
             transition: all 0.2s ease;
+            cursor: pointer;
         }
 
         .btn:hover {
@@ -250,9 +251,29 @@
             </p>
 
             <div class="buttons">
-                <a href="https://music.yandex.ru/playlists/ee6750f8-77b8-6734-90ce-8e0c687529aa" class="btn" target="_blank">Listen on Yandex</a>
-                <a href="https://vk.ru/audio?z=audio_playlist204833129_63/f5a6d3ec424db69216" class="btn" target="_blank">VK Music</a>
-                <!-- Ссылки сюда -->
+                <!-- Яндекс Музыка -->
+                <a href="https://music.yandex.ru/playlists/ee6750f8-77b8-6734-90ce-8e0c687529aa" 
+                   class="btn" 
+                   data-deeplink="yandexmusic://playlist/ee6750f8-77b8-6734-90ce-8e0c687529aa"
+                   onclick="openApp(event, this)">
+                    Listen on Yandex
+                </a>
+                
+                <!-- VK Музыка -->
+                <a href="https://vk.ru/audio?z=audio_playlist204833129_63/f5a6d3ec424db69216" 
+                   class="btn" 
+                   data-deeplink="vk://vk.com/audio?z=audio_playlist204833129_63/f5a6d3ec424db69216"
+                   onclick="openApp(event, this)">
+                    VK Music
+                </a>
+                
+                <!-- Spotify (пример) -->
+                <!-- <a href="https://open.spotify.com/playlist/..." 
+                       class="btn" 
+                       data-deeplink="spotify://playlist/..."
+                       onclick="openApp(event, this)">
+                    Spotify
+                </a> -->
             </div>
 
             <div class="social">
@@ -271,6 +292,29 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Функция для открытия приложения с fallback на браузер
+        function openApp(event, element) {
+            event.preventDefault();
+            
+            const deeplink = element.getAttribute('data-deeplink');
+            const webLink = element.getAttribute('href');
+            
+            if (deeplink) {
+                // Пытаемся открыть приложение
+                window.location.href = deeplink;
+                
+                // Если через 1.5 секунды страница не ушла в приложение, открываем веб-версию
+                setTimeout(() => {
+                    window.open(webLink, '_blank');
+                }, 1500);
+            } else {
+                // Если deeplink не указан, просто открываем веб-версию
+                window.open(webLink, '_blank');
+            }
+        }
+    </script>
 
 </body>
 </html>
